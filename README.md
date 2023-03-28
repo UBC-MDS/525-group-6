@@ -12,7 +12,7 @@ We have sourced the dataset from figshare, and our ultimate aim is to develop an
 
 # Members:
 
-HanChen Wang
-Crystal Geng
-Tony Zoght
-Chester Wang
+- HanChen Wang
+- Crystal Geng
+- Tony Zoght
+- Chester Wang
