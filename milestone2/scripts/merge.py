@@ -2,8 +2,11 @@ import pandas as pd
 import s3fs
 
 # Load raw data
-filepathparquet = "./combined_model_data_parti.parquet"
-df = pd.read_parquet(filepathparquet)
+s3_path = 's3://mds2023-group6/combined_model_data_parti.parquet'
+fs = s3fs.S3FileSystem()
+
+with fs.open(s3_path, 'rb') as f:
+    df = pd.read_parquet(f)
 
 # Filter to keep Sydney data only
 syd_lat = -33.86
