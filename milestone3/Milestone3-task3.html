@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Milestone3-task3</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Milestone3-task3-submit</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -15860,7 +15860,7 @@ jp-needs-light-background
 
 <span class="n">RMSE_table</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Ensemble model (RandomForestReg)&quot;</span><span class="p">],</span> 
-    <span class="s2">&quot;RMSE&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)))]</span>
+    <span class="s2">&quot;RMSE&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -15880,7 +15880,7 @@ jp-needs-light-background
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Update the dataframe with more models&#39; RMSEs. </span>
 <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
     <span class="n">RMSE_table</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[</span><span class="n">model</span><span class="p">]))</span>
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">X_train</span><span class="p">[</span><span class="n">model</span><span class="p">],</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">RMSE_table</span><span class="p">[</span><span class="s2">&quot;RMSE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rmse</span><span class="p">)</span>
 </pre></div>
 
@@ -15947,7 +15947,7 @@ jp-needs-light-background
   <tbody>
     <tr>
       <th>Ensemble model (RandomForestReg)</th>
-      <td>3.18</td>
+      <td>3.23</td>
     </tr>
     <tr>
       <th>ACCESS-CM2</th>
@@ -16069,6 +16069,7 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><strong>Step 6: Discuss your results. Are you getting better results with ensemble models compared to the individual climate models? (Recall that individual columns in the data are predictions of different climate models.)</strong></p>
 <p>Root Mean Squared Error (RMSE) evaluates how close our predictions are to the observed data. Lower RMSE value means the predictions are more accurate. From the table above, we can see that the ensemble model worked better than any other individual models. This is because emsemble model takes the strengths of different models and combine to make more accurate predictions.</p>
+<p>One thing to keep in mind is that our default ensemble model is likely overfitted since we did not limit the number of estimators and max tree depth. In part 2, we will continue to work with this model in the EMR notebook and find the best hyperparameter for the ensemble model.</p>
 
 </div>
 </div>
@@ -16188,7 +16189,7 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Train RMSE: 8.11
+<pre>Train RMSE: 8.10
  Test RMSE: 7.81
 </pre>
 </div>
