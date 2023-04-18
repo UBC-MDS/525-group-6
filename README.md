@@ -15,6 +15,8 @@ Milestone 2: <https://github.com/UBC-MDS/525-group-6/blob/main/milestone2/Milest
 
 Milestone 3: <https://github.com/UBC-MDS/525-group-6/blob/main/milestone3/Milestone3.ipynb>
 
+Milestone 4: <https://github.com/UBC-MDS/525-group-6/tree/main/milestone4>
+
 ## Introduction
 
 In this project, our objective is to get familiar with processing datasets and constructing machine learning models at scale. We will be working with a dataset containing daily precipitation data from New South Wales (NSW), Australia, covering the years from 1889 to 2014. The dataset is derived from CMIP6, a global cooperative initiative that brings together climate modeling outputs from various research groups.
